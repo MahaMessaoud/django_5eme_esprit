@@ -1,0 +1,15 @@
+<!-- templates/registration/register.html -->
+<h2>Inscription</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">S'inscrire</button>
+</form>
+<p>Vous avez déjà un compte ? <a href="{% url 'login' %}">Connectez-vous</a></p>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
